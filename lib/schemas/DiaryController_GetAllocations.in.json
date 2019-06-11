@@ -1,0 +1,26 @@
+{
+    "type": "object",
+    "properties": {
+        "shortName": {
+            "required": true,
+            "type": "string"
+        },
+        "preferredDate": {
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+        },
+        "propertyIdentifier": {
+            "required": true,
+            "type": "string"
+        },
+        "appointmentType": {
+            "required": true,
+            "type": "string"
+        },
+        "lettings": {
+            "required": false,
+            "type": "boolean"
+        }
+    }
+}

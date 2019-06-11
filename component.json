@@ -1,0 +1,186 @@
+{
+    "title": "LetMC Api V3, diary",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/letmc.com/diary/v3-diary/swagger.json",
+    "envVars": {},
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://live-api.letmc.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "auth_apiKey": {
+                "label": "ApiKey (apiKey)",
+                "viewClass": "TextFieldView",
+                "note": "ApiKey Authentication"
+            },
+            "auth_username": {
+                "label": "Username (basic)",
+                "viewClass": "TextFieldView",
+                "note": "Basic HTTP Authentication"
+            },
+            "auth_password": {
+                "label": "Password (basic)",
+                "viewClass": "TextFieldView",
+                "note": "Basic HTTP Authentication"
+            }
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "DiaryController_GetAllocations": {
+            "main": "./lib/actions/DiaryController_GetAllocations.js",
+            "title": "Get a list of all available allocations for a date + 7 days for a specified appointment type",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DiaryController_GetAllocations.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DiaryController_DeleteAppointment": {
+            "main": "./lib/actions/DiaryController_DeleteAppointment.js",
+            "title": "Update an existing appointment using its unique identifier",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DiaryController_DeleteAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DiaryController_GetAppointment": {
+            "main": "./lib/actions/DiaryController_GetAppointment.js",
+            "title": "Get an appointment by ID",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DiaryController_GetAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DiaryController_PostAppointment": {
+            "main": "./lib/actions/DiaryController_PostAppointment.js",
+            "title": "Post an appointment into a valid diary allocation",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DiaryController_PostAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DiaryController_PutAppointment": {
+            "main": "./lib/actions/DiaryController_PutAppointment.js",
+            "title": "Update an existing appointment using its unique identifier",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                },
+                "body_content_type": {
+                    "viewClass": "SelectView",
+                    "label": "Body Content-Type",
+                    "required": true,
+                    "prompt": "Choose a body Content-Type.",
+                    "model": {
+                        "application/json": "application/json",
+                        "text/json": "text/json",
+                        "application/xml": "application/xml",
+                        "text/xml": "text/xml",
+                        "application/x-www-form-urlencoded": "application/x-www-form-urlencoded"
+                    }
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DiaryController_PutAppointment.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DiaryController_GetAppointmentsBetweenDates": {
+            "main": "./lib/actions/DiaryController_GetAppointmentsBetweenDates.js",
+            "title": "A collection of diary appointments linked to a company filtered between specific dates and by appointment type",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DiaryController_GetAppointmentsBetweenDates.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "DiaryController_GetAppointmentTypes": {
+            "main": "./lib/actions/DiaryController_GetAppointmentTypes.js",
+            "title": "A collection of all diary appointment types",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/DiaryController_GetAppointmentTypes.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}

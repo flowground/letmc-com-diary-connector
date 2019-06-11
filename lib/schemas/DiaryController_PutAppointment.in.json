@@ -1,0 +1,89 @@
+{
+    "type": "object",
+    "properties": {
+        "shortName": {
+            "required": true,
+            "type": "string"
+        },
+        "appointmentID": {
+            "required": true,
+            "type": "string"
+        },
+        "lettings": {
+            "required": false,
+            "type": "boolean"
+        },
+        "requestBody": {
+            "description": "Submission Model - Structure to submit the appointment details",
+            "properties": {
+                "AllocationDetails": {
+                    "description": "Allocation details to link the appointment too",
+                    "properties": {
+                        "End": {
+                            "description": "The end time of the booking",
+                            "format": "date-time",
+                            "type": "string"
+                        },
+                        "StaffID": {
+                            "description": "The unique ID of the staff member this booking is with",
+                            "type": "string"
+                        },
+                        "StaffName": {
+                            "description": "The name of the staff member this booking is with",
+                            "type": "string"
+                        },
+                        "Start": {
+                            "description": "The start time of the booking",
+                            "format": "date-time",
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "AppointmentType": {
+                    "description": "The Appointment Type ID",
+                    "type": "string"
+                },
+                "ExtraComments": {
+                    "description": "Additional appointment comments",
+                    "type": "string"
+                },
+                "Guests": {
+                    "description": "A collection of guests linked to the appointment. If none leave empty",
+                    "items": {
+                        "description": "Submission Model - Structure to submit appointment guest details",
+                        "properties": {
+                            "EmailAddress": {
+                                "description": "Email address",
+                                "type": "string"
+                            },
+                            "Forename": {
+                                "description": "Forename",
+                                "type": "string"
+                            },
+                            "MobilePhone": {
+                                "description": "Mobile phone",
+                                "type": "string"
+                            },
+                            "OID": {
+                                "description": "The unique identifier of a user, only submit this is known",
+                                "type": "string"
+                            },
+                            "Surname": {
+                                "description": "Surname",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "Subject": {
+                    "description": "The subject of the appointment",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        }
+    }
+}

@@ -1,0 +1,40 @@
+{
+    "type": "object",
+    "properties": {
+        "shortName": {
+            "required": true,
+            "type": "string"
+        },
+        "branchID": {
+            "required": true,
+            "type": "string"
+        },
+        "startDate": {
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+        },
+        "endDate": {
+            "required": true,
+            "type": "string",
+            "format": "date-time"
+        },
+        "appointmentTypesToSearch": {
+            "required": true,
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "offset": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        },
+        "count": {
+            "required": true,
+            "type": "integer",
+            "format": "int32"
+        }
+    }
+}
